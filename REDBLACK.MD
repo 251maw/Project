@@ -47,20 +47,14 @@ Insertion in a Red-Black Tree involves placing the new node in the appropriate p
 Here's an example of inserting a new node:
 
 - Initial Tree:
-
-
-        B(10)
+       B(10)
        /    \
     R(5)   R(15)
     / \      / \
   B(1) B(7) B(12) B(20)
-
-
 - Inserting 8:
     - Place 8 as the right child of 7.
     - Since 7 is black, no rotations or re-coloring are needed.
-
-
         B(10)
        /    \
     R(5)   R(15)
@@ -68,9 +62,7 @@ Here's an example of inserting a new node:
   B(1) B(7) B(12) B(20)
           \
          R(8)
-
-
-      Deletion
+Deletion
 Deletion involves removing the node and then fixing any violations of the Red-Black properties that may result. This often requires a series of rotations and re-coloring steps.
 
 1. Delete the node: Remove the node as in a regular binary search tree.
@@ -79,8 +71,6 @@ Deletion involves removing the node and then fixing any violations of the Red-Bl
 Here's an example of deleting a node:
 
 - Initial Tree:
-
-
         B(10)
        /    \
     R(5)   R(15)
@@ -88,21 +78,15 @@ Here's an example of deleting a node:
   B(1) B(7) B(12) B(20)
           \
          R(8)
-
-
 - Deleting 7:
     - Replace 7 with 8.
     - Adjust colors and perform rotations if necessary.
-
-
         B(10)
        /    \
     R(5)   R(15)
     / \      / \
   B(1) B(8) B(12) B(20)
-
-
-     Rotations
+Rotations
 Rotations are key operations used to maintain the Red-Black properties. There are two types of rotations: left rotation and right rotation.
 
       Left Rotation
@@ -110,49 +94,32 @@ Rotations are key operations used to maintain the Red-Black properties. There ar
 Performed when the right child needs to become the parent.
 
 Before Left Rotation:
-
-
       y
      / \
     x   C
    / \
   A   B
-
-
 After Left Rotation:
-
-
       x
      / \
     A   y
        / \
       B   C
-
-
       Right Rotation
-
 Performed when a left child needs to become the parent.
 
 Before Right Rotation:
-
-
       x
      / \
     A   y
        / \
       B   C
-
-
 After Right Rotation:
-
-
       y
      / \
     x   C
    / \
   A   B
-
-
 These rotations are used in the fix-up procedures for both insertion and deletion to ensure the tree maintains its balanced structure.
 
 Comparison and Contrast: Red-Black Trees vs. AVL Trees
@@ -218,8 +185,5 @@ In this Red-Black Tree:
 
 Conclusion
 
-While both AVL Trees and Red-Black Trees offer efficient search, insertion, and deletion operations with guaranteed logarithmic time complexity, they are optimized for different scenarios. AVL Trees provide faster search times due to their stricter balance but at the cost of more complex and frequent rotations during updates. Red-Black Trees, with their relaxed balancing rules, offer more efficient insertions and deletions and are simpler to implement, making them well-suited for dynamic datasets with frequent modifications. Understanding these trade-offs helps in choosing the appropriate data structure based on the specific needs of the application.
-
-
-Red-Black Trees are an efficient and widely used data structure in computer science, offering guaranteed balanced binary search tree operations. Their ability to maintain balance through re-coloring and rotations ensures that all operations have a time complexity of O(log n), making them suitable for a variety of applications where dynamic data sets are involved.
+While both AVL Trees and Red-Black Trees offer efficient search, insertion, and deletion operations with guaranteed logarithmic time complexity, they are optimized for different scenarios. AVL Trees provide faster search times due to their stricter balance but at the cost of more complex and frequent rotations during updates. Red-Black Trees, with their relaxed balancing rules, offer more efficient insertions and deletions and are simpler to implement, making them well-suited for dynamic datasets with frequent modifications. Understanding these trade-offs helps in choosing the appropriate data structure based on the specific needs of the application. Red-Black Trees are an efficient and widely used data structure in computer science, offering guaranteed balanced binary search tree operations. Their ability to maintain balance through re-coloring and rotations ensures that all operations have a time complexity of O(log n), making them suitable for a variety of applications where dynamic data sets are involved.
 
