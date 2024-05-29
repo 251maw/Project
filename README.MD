@@ -10,3 +10,4 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. "I
 https://www.geeksforgeeks.org/introduction-to-red-black-tree/
 https://www.programiz.com/dsa/red-black-tree
 https://www.askpython.com/python/examples/red-black-tree-in-python
+https://stackoverflow.com/questions/67346832/tnull-in-red-black-trees-for-python
