@@ -10,12 +10,16 @@ class RedBlackTree:
     def __init__(self):
         self.TNULL = Node(0)
         self.TNULL.color = "black"
+        self.TNULL.left = None
+        self.TNULL.right = None
         self.root = self.TNULL
 
     def insert(self, key):
         node = Node(key)
+        node.parent = None
         node.left = self.TNULL
         node.right = self.TNULL
+        node.color = "red"
 
         parent = None
         current = self.root
@@ -35,7 +39,14 @@ class RedBlackTree:
         else:
             parent.right = node
 
-        node.color = "red"
+        if node.parent is None:
+            node.color = "black"
+            self.root = node
+            return
+
+        if node.parent.parent is None:
+            return
+
         self.fix_insert(node)
 
     def fix_insert(self, k):
@@ -104,15 +115,22 @@ class RedBlackTree:
         y.right = x
         x.parent = y
 
-    def in_order_traversal(self, node):
-        if node != self.TNULL:
-            self.in_order_traversal(node.left)
-            print(f"{node.key} ({'R' if node.color == 'red' else 'B'})", end=" ")
-            self.in_order_traversal(node.right)
-
     def print_tree(self):
-        self.in_order_traversal(self.root)
-        print()
+        if self.root is None:
+            print("The tree is empty.")
+            return
+
+        def display(node, indent, position):
+            if node != self.TNULL:
+                if position == "root":
+                    print(indent + str(node.key) + f"({node.color})")
+                else:
+                    print(indent + position + ": " + str(node.key) + f"({node.color})")
+                indent += "    "
+                display(node.left, indent, "L")
+                display(node.right, indent, "R")
+
+        display(self.root, "", "root")
 
 # Testing the Red-Black Tree Implementation
 def test_red_black_tree():
@@ -124,5 +142,6 @@ def test_red_black_tree():
         rbt.insert(key)
         print(f"Inserted {key}:")
         rbt.print_tree()
+        print()
 
 test_red_black_tree()
